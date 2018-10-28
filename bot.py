@@ -10,7 +10,7 @@ Quizá algún día llegue a ser útil.'''
 # Extensions to loads
 startup_extensions = ["cogs.admin"]
 
-bot = bot = commands.Bot(command_prefix='$', description=description)
+bot = commands.Bot(command_prefix='$', description=description)
 
 
 @bot.event

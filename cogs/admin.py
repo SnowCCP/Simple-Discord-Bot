@@ -7,7 +7,7 @@ class Admin:
 
     @commands.command()
     async def test(self, *args):
-        await self.send('{} arguments: {}'.format(len(args), ', '.join(args)))
+        await self.bot.say('{} arguments: {}'.format(len(args), ', '.join(args)))
 
 
 def setup(bot):
