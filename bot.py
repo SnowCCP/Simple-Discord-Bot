@@ -41,4 +41,4 @@ if __name__ == "__main__":
         print('Failed to load config.ini')
         exit()
 
-    bot.run(config["Credentials"])
+    bot.run(config["Credentials"]["Token"])
