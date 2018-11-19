@@ -34,7 +34,7 @@ class Arena:
         if order == "update":
             msg = await ctx.send("Actualizando eventos deportivos")
             self.guide.scrape_events()
-            await msg.edit("Eventos actualizados")
+            await msg.edit(content="Eventos actualizados")
 
 
 def setup(bot):
