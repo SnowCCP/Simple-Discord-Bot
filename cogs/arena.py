@@ -22,8 +22,8 @@ class Arena:
     @commands.command(name="ace")
     async def ace(self, ctx, order):
         if order == "list":
-            events = self.guide.get_all_events()
             msg = await ctx.send(f"DESCARGANDO LOS ÚLTIMOS EVENTOS DEPORTIVOS")
+            events = self.guide.get_all_events()
             events = self.message_listener.add_events(msg.guild.id, msg.id, events)
             page, page_total = self.message_listener.get_page(msg.guild.id, msg.id)
             text = f"Lista de eventos [Página {page} de {page_total}]:\n"
@@ -31,6 +31,10 @@ class Arena:
                 text += format_event(i, event)
             await msg.edit(content=f"```{text}```")
             await self.add_emojis(self.message_listener.events_per_page, msg)
+        if order == "update":
+            msg = await ctx.send("Actualizando eventos deportivos")
+            self.guide.scrape_events()
+            await msg.edit("Eventos actualizados")
 
 
 def setup(bot):
