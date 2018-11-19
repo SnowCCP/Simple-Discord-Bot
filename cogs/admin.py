@@ -1,10 +1,11 @@
 from discord.ext import commands
 from cogs.utils import config
 
+
 class Admin:
     def __init__(self, bot):
         self.bot = bot
-        self.config_json = config.Config("config.json")
+        self.config_json = config.ConfigPrefix("config.json")
 
     @commands.command(name="test")
     async def test(self, ctx, *args):
@@ -30,7 +31,6 @@ class Admin:
             dic["allowed_channels"] = [int(x) for x in argv[3:]]
             await self.config_json.add_forbidden_prefix(str(ctx.message.guild.id), dic)
             await ctx.send("Prohibición añadida")
-
 
 
 def setup(bot):

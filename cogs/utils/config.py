@@ -2,7 +2,7 @@ import json
 import asyncio
 
 
-class Config:
+class ConfigPrefix:
     """Access to the .json config file."""
     __instance = None
 
@@ -14,9 +14,9 @@ class Config:
         self.load_from_file()
 
     def __new__(cls, name):
-        if Config.__instance is None:
-            Config.__instance = object.__new__(Config)
-        return Config.__instance
+        if ConfigPrefix.__instance is None:
+            ConfigPrefix.__instance = object.__new__(ConfigPrefix)
+        return ConfigPrefix.__instance
 
     def load_from_file(self):
         try:
